@@ -40,9 +40,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.worker = WorkWithReq(self.resourse, self.num_pages)
         self.worker.moveToThread(self.thread)
 
-        if thread_status == 0 :
+        if thread_status == 0:
             self.thread.started.connect(self.worker.run_with_concurrent_futures)
-        elif thread_status ==1:
+        elif thread_status == 1:
             self.thread.started.connect(self.worker.run_with_threading)
         else:
             self.thread.started.connect(self.worker.run_without_threads)
